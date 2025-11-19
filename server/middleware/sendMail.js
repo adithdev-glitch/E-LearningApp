@@ -1,5 +1,5 @@
 import { createTransport } from "nodemailer";
-
+import "dotenv/config.js";
 import { User } from "../models/user.js";
 import { Courses } from "../models/courses.js";
 

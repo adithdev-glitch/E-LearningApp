@@ -1,5 +1,5 @@
 // controllers/feedbackController.js
-import Feedback from "../models/Feedback.js";
+import Feedback from "../models/feedbackModel.js";
 
 export const submitFeedback = async (req, res) => {
   try {

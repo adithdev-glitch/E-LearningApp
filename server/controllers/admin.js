@@ -1,7 +1,7 @@
 import TryCatch from "../middleware/TryCatch.js";
 import { Courses } from "../models/courses.js";
 import { Lecture } from "../models/lecture.js";
-import Feedback from '../models/Feedback.js';
+import Feedback from '../models/feedbackModel.js';
 import { rm } from "fs";
 import { promisify } from "util";
 import fs from "fs";
