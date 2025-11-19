@@ -1,0 +1,194 @@
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Layout from "../Utils/Layout";
+import axios from "axios";
+import { server } from "../../main";
+import "./dashboard.css";
+import '../../assets/css/style.css'
+// import '../Utils/Common.css'
+
+const AdminDashbord = ({ user }) => {
+  const navigate = useNavigate();
+
+  if (user && user.role !== "admin") return navigate("/");
+
+  const [stats, setStats] = useState([]);
+
+  async function fetchStats() {
+    try {
+      const { data } = await axios.get(`${server}/api/stats`, {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      });
+
+      setStats(data.stats);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchStats();
+  }, []);
+  return (
+    <div>
+      <Layout>
+        {/* <div className="main-content">
+          <div className="box">
+            <p>Total Courses</p>
+            <p>{stats.totalCoures}</p>
+          </div>
+          <div className="box">
+            <p>Total Lectures</p>
+            <p>{stats.totalLectures}</p>
+          </div>
+          <div className="box">
+            <p>Total Users</p>
+            <p>{stats.totalUsers}</p>
+          </div>
+        </div> */}
+        <div className="main-panel">
+      <div className="content-wrapper">
+        <div className="row">
+          <div className="col-xl-6 grid-margin stretch-card flex-column">
+            <h5 className="mb-2 text-titlecase mb-4">Status statistics</h5>
+            <div className="row">
+              <div className="col-md-6 grid-margin stretch-card">
+                <div className="card">
+                  <div className="card-body d-flex flex-column justify-content-between">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <p className="mb-0 text-muted">Transactions</p>
+                      <p className="mb-0 text-muted">+1.37%</p>
+                    </div>
+                    <h4>1352</h4>
+                    <canvas id="transactions-chart" className="mt-auto" height="65"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6 grid-margin stretch-card">
+                <div className="card">
+                  <div className="card-body d-flex flex-column justify-content-between">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <div>
+                        <p className="mb-2 text-muted">Sales</p>
+                        <h6 className="mb-0">563</h6>
+                      </div>
+                      <div>
+                        <p className="mb-2 text-muted">Orders</p>
+                        <h6 className="mb-0">720</h6>
+                      </div>
+                      <div>
+                        <p className="mb-2 text-muted">Revenue</p>
+                        <h6 className="mb-0">5900</h6>
+                      </div>
+                    </div>
+                    <canvas id="sales-chart-a" className="mt-auto" height="65"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row h-100">
+              <div className="col-md-6 stretch-card grid-margin grid-margin-md-0">
+                <div className="card">
+                  <div className="card-body d-flex flex-column justify-content-between">
+                    <p className="text-muted">Sales Analytics</p>
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <h3 className="mb-">27632</h3>
+                      <h3 className="mb-">78%</h3>
+                    </div>
+                    <canvas id="sales-chart-b" className="mt-auto" height="38"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6 stretch-card">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="row h-100">
+                      <div className="col-6 d-flex flex-column justify-content-between">
+                        <p className="text-muted">CPU</p>
+                        <h4>55%</h4>
+                        <canvas id="cpu-chart" className="mt-auto"></canvas>
+                      </div>
+                      <div className="col-6 d-flex flex-column justify-content-between">
+                        <p className="text-muted">Memory</p>
+                        <h4>123,65</h4>
+                        <canvas id="memory-chart" className="mt-auto"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-xl-6 grid-margin stretch-card flex-column">
+            <h5 className="mb-2 text-titlecase mb-4">Income statistics</h5>
+            <div className="row h-100">
+              <div className="col-md-12 stretch-card">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between align-items-start flex-wrap">
+                      <div>
+                        <p className="mb-3">Monthly Increase</p>
+                        <h3>67842</h3>
+                      </div>
+                      <div id="income-chart-legend" className="d-flex flex-wrap mt-1 mt-md-0"></div>
+                    </div>
+                    <canvas id="income-chart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xl-4 grid-margin stretch-card">
+            <div className="card">
+              <div className="card-body">
+                <h6 className="text-uppercase fw-medium">Overall Sales</h6>
+                <canvas id="sales-chart-c" className="mt-2"></canvas>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 col-xl-4 grid-margin stretch-card">
+            <div className="row">
+              <div className="col-md-12 grid-margin stretch-card">
+                <div className="card newsletter-card bg-gradient-warning">
+                  <div className="card-body text-center">
+                    <h5 className="text-white">Newsletter</h5>
+                    <input type="text" className="form-control mt-2" placeholder="Email address" />
+                    <button className="btn btn-danger btn-rounded mt-2">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-12 stretch-card">
+                <div className="card profile-card bg-gradient-primary">
+                  <div className="card-body text-center">
+                    <img src="assets/images/faces/face20.jpg" alt="avatar" className="rounded-circle mb-2" width="50" />
+                    <h5 className="text-white">Phoebe Kennedy</h5>
+                    <p className="text-white">kennedy@gmail.com</p>
+                    <p className="text-white">Birth date: 16 Sep 2019</p>
+                    <p className="text-white">Birth city: Netherlands</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 col-xl-4 grid-margin stretch-card">
+            <div className="card">
+              <div className="card-body">
+                <h6 className="text-uppercase fw-medium">Sales Statistics</h6>
+                <canvas id="sales-chart-d" height="320"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </Layout>
+    </div>
+  );
+};
+
+export default AdminDashbord;

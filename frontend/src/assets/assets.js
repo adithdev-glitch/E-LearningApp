@@ -1,0 +1,28 @@
+import img from "./img.jpg"
+import about from "./about.jpg"
+import course_1 from "./course_1.jpg"
+import course_2 from "./course_2.jpg"
+import course_3 from "./course_3.jpg"
+import trainer_1 from "./trainers/trainer-1.jpg"
+import trainer_2 from "./trainers/trainer-2.jpg"
+import trainer_3 from "./trainers/trainer-3.jpg"
+import trainer_11 from "./trainers/trainer-11.jpg"
+import trainer_22 from "./trainers/trainer-22.jpg"
+import trainer_33 from "./trainers/trainer-33.jpg"
+import signup from "./signup.jpg"
+import signin from "./signin.jpg"
+import test_1 from "./test/test_1.jpg"
+import test_2 from "./test/test_2.jpg"
+import test_3 from "./test/test_3.jpg"
+import test_4 from "./test/test_4.jpg"
+import test_5 from "./test/test_5.jpg"
+import tab_1 from "./tab/tab-1.png"
+import tab_2 from "./tab/tab-2.png"
+import tab_3 from "./tab/tab-3.png"
+import tab_4 from "./tab/tab-4.png"
+import tab_5 from "./tab/tab-5.png"
+import admin_1 from "./admin.jpeg"
+
+
+export const  assets={img,about,course_1,course_2,course_3,trainer_1,trainer_2,trainer_3,trainer_11,trainer_22,
+    trainer_33,signup,signin,test_1,test_2,test_3,test_4,test_5,tab_1,tab_2,tab_3,tab_4,tab_5,admin_1};

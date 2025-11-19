@@ -1,0 +1,88 @@
+.feedback-container {
+  max-width: 500px;
+  margin: 200px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+
+}
+
+.emoji-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.emoji-btn {
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.emoji-btn.selected {
+  color: #4caf50;
+}
+.feed_mail,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border 0.2s;
+  margin-top: 10px;
+}
+
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  resize: none;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+.emoji-btn {
+  font-size: 2rem;
+  background: #f3f3f3;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.emoji-btn:hover {
+  background-color: #ffe0ec;
+  box-shadow: 0 4px 10px rgba(126, 87, 194, 0.2);
+  transform: scale(1.15);
+}
+
+.emoji-btn.selected {
+  background-color: #7e57c2;  /* Purple color for selected emoji */
+  color: white;  /* Text color when selected */
+  border-color: #4f46e5;  /* Darker border for selected emoji */
+  box-shadow: 0 0 8px rgba(126, 87, 194, 0.4);
+}
