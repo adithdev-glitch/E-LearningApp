@@ -22,7 +22,7 @@ import Lecture from "./Pages/lecture/Lecture";
 import AdminDashboard from "./admin/Dashboard/AdminDashboard";
 import AdminCourses from "./admin/Course/AdminCourses";
 import AdminUsers from "./admin/Users/AdminUsers";
-import Contact from "./Pages/contact/contact";
+import Contact from "./Pages/contact/Contact";
 import ForgotPassword from "./Pages/auth/ForgotPassword";
 import ResetPassword from "./Pages/auth/ResetPassword";
 import FeedbackPage from "./components/feedback/FeedbackPage";
