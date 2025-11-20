@@ -26,6 +26,8 @@ app.get('/',(req, res) => {
 });
 
 app.use("/uploads", express.static("uploads"));
+app.use(express.static("public"));
+
 
 // importing routes
 import userRoutes from "./routes/user.js";
