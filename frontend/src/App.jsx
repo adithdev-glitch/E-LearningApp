@@ -15,7 +15,7 @@ import { UserData } from "./context/UserContext";
 import Loading from "./components/loading/Loading"
 import Courses from "./Pages/courses/Courses";
 import CourseDesc from "./Pages/courseDesc/CourseDesc";
-import PaymentSuccess from "./Pages/paymentsuccess/paymentSuccess";
+import PaymentSuccess from "./Pages/paymentsuccess/PaymentSuccess";
 import Dashboard from "./Pages/dashboard/Dashboard";
 import CourseStudy from "./Pages/coursestudy/CourseStudy";
 import Lecture from "./Pages/lecture/Lecture";
