@@ -16,11 +16,27 @@ export const instance = new Razorpay({
 const app = express();
 
 //using middleware
+const allowedOrigins = [
+    "https://e-learning-app-blush-one.vercel.app"
+];
+
 app.use(express.json());
-app.use(cors({
-    origin: ["https://e-learning-app-blush-one.vercel.app/"],
-    credentials: true, 
-  }));
+/* CORS */
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Accept",
+      "X-Requested-With",
+      "token",
+      "auth-token",
+    ],
+  })
+);
 
 const port = process.env.PORT;
 
