@@ -4,7 +4,7 @@ import App from './App.jsx'
 import AOS from "aos";
 import { UserContextProvider } from './context/UserContext.jsx';
 import { CourseContextProvider } from './context/CourseContext.jsx';
-import "dotenv/config.js";
+
 
 export const server = import.meta.env.VITE_SERVER_URL;
 
