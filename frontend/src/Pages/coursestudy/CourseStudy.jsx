@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./coursestudy.css";
+import "./Coursestudy.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { CourseData } from "../../context/CourseContext";
 import { server } from "../../main";
