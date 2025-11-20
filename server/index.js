@@ -37,6 +37,8 @@ app.use(
     ],
   })
 );
+app.options("*", cors());
+
 
 const port = process.env.PORT;
 
