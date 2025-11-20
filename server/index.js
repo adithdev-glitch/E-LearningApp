@@ -17,7 +17,10 @@ const app = express();
 
 //using middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ["https://e-learning-app-blush-one.vercel.app/"],
+    credentials: true, 
+  }));
 
 const port = process.env.PORT;
 
