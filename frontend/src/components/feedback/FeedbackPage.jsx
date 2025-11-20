@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Feedback.css';  
+import './feedback.css';  
 import { toast } from 'react-hot-toast';  
 import { server } from "../../main";
 
